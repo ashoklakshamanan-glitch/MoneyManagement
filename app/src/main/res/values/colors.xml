@@ -1,5 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Material 3 color roles - light -->
+    <color name="md_primary">#0F766E</color>
+    <color name="md_on_primary">#FFFFFF</color>
+    <color name="md_primary_container">#CCFBF1</color>
+    <color name="md_on_primary_container">#042F2E</color>
+
+    <color name="md_secondary">#475569</color>
+    <color name="md_on_secondary">#FFFFFF</color>
+    <color name="md_secondary_container">#E2E8F0</color>
+    <color name="md_on_secondary_container">#1E293B</color>
+
+    <color name="md_tertiary">#D97706</color>
+    <color name="md_on_tertiary">#FFFFFF</color>
+    <color name="md_tertiary_container">#FEF3C7</color>
+    <color name="md_on_tertiary_container">#78350F</color>
+
+    <color name="md_error">#DC2626</color>
+    <color name="md_on_error">#FFFFFF</color>
+    <color name="md_error_container">#FEE2E2</color>
+    <color name="md_on_error_container">#7F1D1D</color>
+
+    <color name="md_background">#F8FAFC</color>
+    <color name="md_on_background">#0F172A</color>
+
+    <color name="md_surface">#FFFFFF</color>
+    <color name="md_on_surface">#0F172A</color>
+    <color name="md_surface_variant">#E2E8F0</color>
+    <color name="md_on_surface_variant">#475569</color>
+    <color name="md_surface_container">#F1F5F9</color>
+    <color name="md_surface_container_high">#E2E8F0</color>
+
+    <color name="md_outline">#94A3B8</color>
+    <color name="md_outline_variant">#CBD5E1</color>
+
+    <!-- Financial semantics: intentionally distinct from colorError so a "this is an
+         expense" tag never reads as "something went wrong". -->
+    <color name="color_income">#059669</color>
+    <color name="color_expense">#E11D48</color>
+    <color name="color_warning">#D97706</color>
+
+    <color name="color_white">#FFFFFF</color>
+    <color name="color_black">#000000</color>
+    <color name="color_transparent">#00000000</color>
+
+    <!-- Default palette offered when a user creates a custom category -->
+    <color name="category_swatch_1">#EF5350</color>
+    <color name="category_swatch_2">#FF7043</color>
+    <color name="category_swatch_3">#FFA726</color>
+    <color name="category_swatch_4">#D4A017</color>
+    <color name="category_swatch_5">#66BB6A</color>
+    <color name="category_swatch_6">#26A69A</color>
+    <color name="category_swatch_7">#29B6F6</color>
+    <color name="category_swatch_8">#42A5F5</color>
+    <color name="category_swatch_9">#5C6BC0</color>
+    <color name="category_swatch_10">#AB47BC</color>
+    <color name="category_swatch_11">#EC407A</color>
+    <color name="category_swatch_12">#78909C</color>
 </resources>
