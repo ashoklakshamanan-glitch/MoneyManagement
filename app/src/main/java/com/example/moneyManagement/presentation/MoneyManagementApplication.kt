@@ -1,6 +1,7 @@
-package com.example.moneyManagement.Activity.presentation.splash
+package com.example.moneyManagement.presentation
 
 import android.app.Application
+
 
 class MoneyManagementApplication: Application() {
 }

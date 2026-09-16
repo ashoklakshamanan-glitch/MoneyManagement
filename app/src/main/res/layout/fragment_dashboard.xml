@@ -1,14 +1,388 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.Dashboard.DashboardFragment">
+    android:background="@color/md_background"
+    tools:context=".presentation.dashboard.DashboardFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!-- Swipe Refresh -->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="96dp">
+
+            <!-- Content -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/content_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/spacing_l"
+                android:paddingEnd="@dimen/spacing_l"
+                android:paddingTop="@dimen/spacing_l">
+
+                <!-- Greeting -->
+                <TextView
+                    android:id="@+id/dashboard_greeting_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dashboard_greeting"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                    android:textColor="@color/md_on_background"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Balance Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/balance_card"
+                    style="@style/Widget.SpendWise.CardView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_l"
+                    app:layout_constraintTop_toBottomOf="@id/dashboard_greeting_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/spacing_l">
+
+                        <TextView
+                            android:id="@+id/current_balance_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dashboard_current_balance"
+                            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                            android:textColor="@color/md_on_surface"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/balance_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_xs"
+                            android:textAppearance="@style/TextAppearance.SpendWise.AmountLarge"
+                            android:textColor="@color/md_on_surface"
+                            tools:text="₹12,480.00"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/current_balance_label" />
+
+                        <View
+                            android:id="@+id/balance_divider"
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="@dimen/spacing_l"
+                            android:layout_marginBottom="@dimen/spacing_l"
+                            android:background="@color/md_surface_variant"
+                            app:layout_constraintTop_toBottomOf="@id/balance_text"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                        <!-- Income -->
+                        <TextView
+                            android:id="@+id/total_income_label"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="6dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/dashboard_total_income"
+                            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                            android:textColor="@color/md_on_surface_variant"
+                            app:drawableStartCompat="@drawable/ic_income_arrow"
+                            app:drawableTint="@color/color_income"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/balance_divider"
+                            app:layout_constraintEnd_toStartOf="@id/expense_column" />
+
+                        <TextView
+                            android:id="@+id/total_income_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:textColor="@color/color_income"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            tools:text="₹20,000.00"
+                            app:layout_constraintStart_toStartOf="@id/total_income_label"
+                            app:layout_constraintTop_toBottomOf="@id/total_income_label" />
+
+                        <!-- Expense Column -->
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/expense_guideline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.5" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/expense_column"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toStartOf="@id/expense_guideline"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/balance_divider">
+
+                            <TextView
+                                android:id="@+id/total_expense_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawablePadding="6dp"
+                                android:gravity="center_vertical"
+                                android:text="@string/dashboard_total_expense"
+                                android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                                android:textColor="@color/md_on_surface_variant"
+                                app:drawableStartCompat="@drawable/ic_expense_arrow"
+                                app:drawableTint="@color/color_expense"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/total_expense_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:textColor="@color/color_expense"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                tools:text="₹7,520.00"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/total_expense_label" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <!-- Budget Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/budget_card"
+                    style="@style/Widget.SpendWise.CardView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_m"
+                    app:layout_constraintTop_toBottomOf="@id/balance_card"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/spacing_l">
+
+                        <com.google.android.material.progressindicator.CircularProgressIndicator
+                            android:id="@+id/budget_progress_ring"
+                            android:layout_width="@dimen/progress_ring_size"
+                            android:layout_height="@dimen/progress_ring_size"
+                            android:contentDescription="@string/cd_budget_progress"
+                            app:indicatorColor="@color/md_primary"
+                            app:indicatorSize="@dimen/progress_ring_size"
+                            app:trackColor="@color/md_surface_variant"
+                            app:trackThickness="@dimen/progress_ring_stroke"
+                            app:trackCornerRadius="8dp"
+                            tools:progress="65"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent" />
+
+                        <TextView
+                            android:id="@+id/budget_percent_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/md_on_surface"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            tools:text="65%"
+                            app:layout_constraintStart_toStartOf="@id/budget_progress_ring"
+                            app:layout_constraintEnd_toEndOf="@id/budget_progress_ring"
+                            app:layout_constraintTop_toTopOf="@id/budget_progress_ring"
+                            app:layout_constraintBottom_toBottomOf="@id/budget_progress_ring" />
+
+                        <TextView
+                            android:id="@+id/monthly_budget_text"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dashboard_monthly_budget"
+                            android:textAppearance="@style/TextAppearance.SpendWise.SectionHeader"
+                            android:textColor="@color/md_on_surface"
+                            android:layout_marginStart="@dimen/spacing_l"
+                            app:layout_constraintStart_toEndOf="@id/budget_progress_ring"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/budget_progress_ring" />
+
+                        <TextView
+                            android:id="@+id/budget_summary_text"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_l"
+                            android:layout_marginTop="2dp"
+                            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                            android:textColor="@color/md_on_surface_variant"
+                            tools:text="₹4,875 of ₹7,500 · ₹2,625 left"
+                            app:layout_constraintStart_toEndOf="@id/budget_progress_ring"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/monthly_budget_text" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/set_budget_button"
+                            style="@style/Widget.Material3.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="-8dp"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/dashboard_set_budget_cta"
+                            android:visibility="gone"
+                            tools:visibility="visible"
+                            app:layout_constraintStart_toStartOf="@id/budget_summary_text"
+                            app:layout_constraintTop_toBottomOf="@id/budget_summary_text" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <!-- Mini Spending Chart -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/chart_card"
+                    style="@style/Widget.SpendWise.CardView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_m"
+                    app:layout_constraintTop_toBottomOf="@id/budget_card"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/spacing_l">
+
+                        <TextView
+                            android:id="@+id/spending_this_month_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dashboard_spending_this_month"
+                            android:textAppearance="@style/TextAppearance.SpendWise.SectionHeader"
+                            android:textColor="@color/md_on_surface"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.github.mikephil.charting.charts.LineChart
+                            android:id="@+id/dashboard_mini_chart"
+                            android:layout_width="0dp"
+                            android:layout_height="120dp"
+                            android:layout_marginTop="@dimen/spacing_s"
+                            app:layout_constraintTop_toBottomOf="@id/spending_this_month_text"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <!-- Recent Transactions Header -->
+                <TextView
+                    android:id="@+id/recent_transactions_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dashboard_recent_transactions"
+                    android:textAppearance="@style/TextAppearance.SpendWise.SectionHeader"
+                    android:textColor="@color/md_on_surface"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/view_all_button"
+                    app:layout_constraintTop_toBottomOf="@id/chart_card" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/view_all_button"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/action_view_all"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/recent_transactions_title" />
+
+                <!-- Recent Transactions Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/recent_transactions_card"
+                    style="@style/Widget.SpendWise.CardView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_s"
+                    app:layout_constraintTop_toBottomOf="@id/recent_transactions_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recent_transactions_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false"
+                        android:overScrollMode="never"
+                        tools:itemCount="3"
+                        tools:listitem="@layout/item_transaction" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <!-- Empty Transactions -->
+                <TextView
+                    android:id="@+id/empty_transactions_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_l"
+                    android:gravity="center"
+                    android:paddingVertical="@dimen/spacing_xxl"
+                    android:text="@string/dashboard_empty_transactions"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                    android:textColor="@color/md_on_surface_variant"
+                    android:visibility="gone"
+                    tools:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/recent_transactions_card"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+    <!-- Loading Indicator -->
+    <ProgressBar
+        android:id="@+id/loading_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    <!-- Add Transaction FAB -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_transaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:contentDescription="@string/cd_fab_add_transaction"
+        app:srcCompat="@drawable/ic_add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </FrameLayout>

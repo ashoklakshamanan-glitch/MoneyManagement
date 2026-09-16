@@ -2,6 +2,7 @@ import org.gradle.kotlin.dsl.implementation
 
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.navigation.safeargs)
     id("com.google.gms.google-services")
 }
 
@@ -42,6 +43,7 @@ android {
 dependencies {
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
@@ -56,4 +58,7 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
+    implementation(libs.androidx.swiperefreshlayout)
+    // Charts (Analytics + dashboard mini-chart)
+    implementation(libs.mpandroidchart)
 }

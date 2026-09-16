@@ -7,7 +7,63 @@
 
     <fragment
         android:id="@+id/dashboardFragment"
-        android:name="com.example.moneyManagement.presentation.Dashboard.DashboardFragment"
+        android:name="com.example.moneyManagement.presentation.dashboard.DashboardFragment"
         android:label="fragment_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboard_to_addEditTransaction"
+            app:destination="@id/addEditTransactionFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_transactionsFragment"
+            app:destination="@id/transactionsFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_analyticsFragment"
+            app:destination="@id/analyticsFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_budgetFragment"
+            app:destination="@id/budgetFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_transactionDetailsFragment"
+            app:destination="@id/transactionDetailsFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEditTransactionFragment"
+        android:name="com.example.moneyManagement.presentation.addTransaction.AddEditTransactionFragment"
+        android:label="AddEditTransactionFragment"
+        tools:layout="@layout/fragment_add_edit_transaction" />
+    <fragment
+        android:id="@+id/transactionsFragment"
+        android:name="com.example.moneyManagement.presentation.transactions.TransactionsFragment"
+        android:label="fragment_transactions"
+        tools:layout="@layout/fragment_transactions" >
+        <action
+            android:id="@+id/action_transactionsFragment_to_analyticsFragment"
+            app:destination="@id/analyticsFragment" />
+        <action
+            android:id="@+id/action_transactionsFragment_to_transactionDetailsFragment"
+            app:destination="@id/transactionDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/analyticsFragment"
+        android:name="com.example.moneyManagement.presentation.analytics.AnalyticsFragment"
+        android:label="fragment_analytics"
+        tools:layout="@layout/fragment_analytics" >
+    </fragment>
+    <fragment
+        android:id="@+id/budgetFragment"
+        android:name="com.example.moneyManagement.presentation.budget.BudgetFragment"
+        android:label="BudgetFragment" />
+    <fragment
+        android:id="@+id/transactionDetailsFragment"
+        android:name="com.example.moneyManagement.presentation.transactiondetails.TransactionDetailsFragment"
+        android:label="TransactionDetailsFragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.moneyManagement.presentation.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+
 </navigation>
