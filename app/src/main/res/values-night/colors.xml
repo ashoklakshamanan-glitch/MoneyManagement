@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Material 3 color roles - Dark -->
+
+    <color name="md_primary">#2DD4BF</color>
+    <color name="md_on_primary">#003735</color>
+    <color name="md_primary_container">#115E59</color>
+    <color name="md_on_primary_container">#CCFBF1</color>
+
+    <color name="md_secondary">#94A3B8</color>
+    <color name="md_on_secondary">#0F172A</color>
+    <color name="md_secondary_container">#334155</color>
+    <color name="md_on_secondary_container">#E2E8F0</color>
+
+    <color name="md_tertiary">#FBBF24</color>
+    <color name="md_on_tertiary">#451A03</color>
+    <color name="md_tertiary_container">#78350F</color>
+    <color name="md_on_tertiary_container">#FEF3C7</color>
+
+    <color name="md_error">#F87171</color>
+    <color name="md_on_error">#450A0A</color>
+    <color name="md_error_container">#7F1D1D</color>
+    <color name="md_on_error_container">#FEE2E2</color>
+
+    <!-- Background -->
+    <color name="md_background">#0F172A</color>
+    <color name="md_on_background">#F8FAFC</color>
+
+    <!-- Surface -->
+    <color name="md_surface">#1E293B</color>
+    <color name="md_on_surface">#F8FAFC</color>
+    <color name="md_surface_variant">#334155</color>
+    <color name="md_on_surface_variant">#CBD5E1</color>
+    <color name="md_surface_container">#1E293B</color>
+    <color name="md_surface_container_high">#334155</color>
+
+    <!-- Outline -->
+    <color name="md_outline">#64748B</color>
+    <color name="md_outline_variant">#475569</color>
+
+    <!-- Financial colors -->
+    <color name="color_income">#34D399</color>
+    <color name="color_expense">#FB7185</color>
+    <color name="color_warning">#FBBF24</color>
+
+    <!-- Common -->
+    <color name="color_white">#FFFFFF</color>
+    <color name="color_black">#000000</color>
+    <color name="color_transparent">#00000000</color>
+
+    <!-- Category colors -->
+    <color name="category_swatch_1">#EF5350</color>
+    <color name="category_swatch_2">#FF7043</color>
+    <color name="category_swatch_3">#FFA726</color>
+    <color name="category_swatch_4">#D4A017</color>
+    <color name="category_swatch_5">#66BB6A</color>
+    <color name="category_swatch_6">#26A69A</color>
+    <color name="category_swatch_7">#29B6F6</color>
+    <color name="category_swatch_8">#42A5F5</color>
+    <color name="category_swatch_9">#5C6BC0</color>
+    <color name="category_swatch_10">#AB47BC</color>
+    <color name="category_swatch_11">#EC407A</color>
+    <color name="category_swatch_12">#78909C</color>
+
+</resources>

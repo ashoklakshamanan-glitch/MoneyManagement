@@ -15,6 +15,8 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:background="@color/md_background"
+            app:backgroundTint="@color/md_background"
             app:menu="@menu/menu_transactions"
             app:title="@string/transactions_title"
             app:titleTextColor="@color/md_on_surface" />

@@ -15,7 +15,7 @@
         android:title="@string/nav_analytics" />
     <item
         android:id="@+id/budgetFragment"
-        android:icon="@drawable/budget"
+        android:icon="@drawable/ic_budget"
         android:title="@string/nav_budget" />
     <item
         android:id="@+id/settingsFragment"
