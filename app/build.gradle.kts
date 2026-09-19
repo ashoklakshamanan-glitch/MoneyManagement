@@ -3,6 +3,8 @@ import org.gradle.kotlin.dsl.implementation
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.navigation.safeargs)
+    alias(libs.plugins.ksp)
+    id("com.google.dagger.hilt.android")
     id("com.google.gms.google-services")
 }
 
@@ -45,6 +47,7 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.room.common)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
@@ -61,4 +64,9 @@ dependencies {
     implementation(libs.androidx.swiperefreshlayout)
     // Charts (Analytics + dashboard mini-chart)
     implementation(libs.mpandroidchart)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
 }
