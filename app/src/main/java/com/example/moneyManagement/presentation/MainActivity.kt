@@ -3,6 +3,7 @@ package com.example.moneyManagement.presentation
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
+import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -65,6 +66,18 @@ class MainActivity : AppCompatActivity() {
                 applyWindowInsets()
             }
         }
+        onBackPressedDispatcher.addCallback(this){
+            val currentFragment= navController.currentDestination?.id
+            when (currentFragment) {
+                R.id.dashboardFragment -> finish()
+                in topLevelDestinationIds -> {
+                    navController.popBackStack(R.id.dashboardFragment,false)
+                }
+                else -> {
+                    navController.popBackStack()
+                }
+            }
+        }
     }
 
     private fun applyWindowInsets() {
@@ -83,7 +96,6 @@ class MainActivity : AppCompatActivity() {
             insets
         }
     }
-
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
