@@ -10,12 +10,26 @@ data class Transaction(
     val id: Long = 0,
     val title: String,
     val amount: Double,
-    /*val type: TransactionType,
-    val category: Category,*/
+    val type: TransactionType,
+    val category: Category,
     val date: Long,
     val time: String,
     val notes: String,
-   /* val paymentMethod: PaymentMethod,*/
+    val paymentMethod: PaymentMethod,
     val createdAt: Long = System.currentTimeMillis(),
     val updatedAt: Long = System.currentTimeMillis()
+)
+
+/**
+ * A spending or income bucket. [icon] is a lookup key resolved via
+ * [com.spendwise.app.utils.CategoryIconProvider], not a resource id directly, so the
+ * database never stores values that could change across app versions.
+ */
+data class Category(
+    val id: Long = 0,
+    val name: String,
+    val icon: String,
+    val color: String,
+    val type: TransactionType,
+    val isDefault: Boolean = false
 )

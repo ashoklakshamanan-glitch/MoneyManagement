@@ -43,7 +43,12 @@
         android:id="@+id/addEditTransactionFragment"
         android:name="com.example.moneyManagement.presentation.addTransaction.AddEditTransactionFragment"
         android:label="AddEditTransactionFragment"
-        tools:layout="@layout/fragment_add_edit_transaction" />
+        tools:layout="@layout/fragment_add_edit_transaction" >
+    <argument
+        android:name="transactionId"
+        app:argType="long"
+        android:defaultValue="-1L"/>
+    </fragment>
     <fragment
         android:id="@+id/transactionsFragment"
         android:name="com.example.moneyManagement.presentation.transactions.TransactionsFragment"

@@ -15,6 +15,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.moneyManagement.R
 import com.example.moneyManagement.databinding.ActivityMainBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -69,7 +70,7 @@ class MainActivity : AppCompatActivity() {
         onBackPressedDispatcher.addCallback(this){
             val currentFragment= navController.currentDestination?.id
             when (currentFragment) {
-                R.id.dashboardFragment -> finish()
+                R.id.dashboardFragment -> showExitDialog()
                 in topLevelDestinationIds -> {
                     navController.popBackStack(R.id.dashboardFragment,false)
                 }
@@ -95,6 +96,16 @@ class MainActivity : AppCompatActivity() {
 
             insets
         }
+    }
+    private fun showExitDialog() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Exit")
+            .setMessage("Do you want to exit the app?")
+            .setNegativeButton("Cancel", null)
+            .setPositiveButton("Exit") { _, _ ->
+                finishAndRemoveTask()
+            }
+            .show()
     }
     override fun onDestroy() {
         super.onDestroy()
