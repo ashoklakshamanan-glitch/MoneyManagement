@@ -1,3 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">SpendWise</string>
+    <string name="app_tagline">Track every rupee</string>
+
+    <!-- Common -->
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_ok">OK</string>
+    <string name="action_yes">Yes</string>
+    <string name="action_no">No</string>
+    <string name="action_retry">Retry</string>
+    <string name="action_done">Done</string>
+    <string name="action_saving">Saving\u2026</string>
+    <string name="action_add">Add</string>
+    <string name="action_search">Search</string>
+    <string name="action_filter">Filter</string>
+    <string name="action_sort">Sort</string>
+    <string name="action_clear">Clear</string>
+    <string name="action_clear_all">Clear all</string>
+    <string name="action_apply">Apply</string>
+    <string name="action_reset">Reset</string>
+    <string name="action_close">Close</string>
+    <string name="action_confirm">Confirm</string>
+    <string name="action_export">Export</string>
+    <string name="action_import">Import</string>
+    <string name="action_view_all">View all</string>
+    <string name="error_generic">Something went wrong. Please try again.</string>
+    <string name="error_database">We couldn\'t reach the database. Please try again.</string>
+
+    <!-- Splash -->
+    <string name="cd_app_logo">SpendWise logo</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard_title">Dashboard</string>
+    <string name="dashboard_greeting">Welcome back</string>
+    <string name="dashboard_current_balance">Current balance</string>
+    <string name="dashboard_total_income">Total income</string>
+    <string name="dashboard_total_expense">Total expenses</string>
+    <string name="dashboard_month_spending">This month\'s spending</string>
+    <string name="dashboard_monthly_budget">Monthly budget</string>
+    <string name="dashboard_remaining_budget">Remaining</string>
+    <string name="dashboard_budget_used_percent">%1$d%% used</string>
+    <string name="dashboard_no_budget_set">No budget set for this month</string>
+    <string name="dashboard_set_budget_cta">Set a budget</string>
+    <string name="dashboard_recent_transactions">Recent Transactions</string>
+    <string name="dashboard_spending_this_month">Spending this month</string>
+    <string name="dashboard_empty_transactions">No transactions yet. Tap + to add your first one.</string>
+    <string name="cd_fab_add_transaction">Add transaction</string>
+    <string name="cd_budget_progress">Budget usage progress</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_dashboard">Home</string>
+    <string name="nav_transactions">Transactions</string>
+    <string name="nav_analytics">Analytics</string>
+    <string name="nav_budget">Budget</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Add / Edit Transaction -->
+    <string name="add_transaction_title">Add Transaction</string>
+    <string name="edit_transaction_title">Edit Transaction</string>
+    <string name="type_expense">Expense</string>
+    <string name="type_income">Income</string>
+    <string name="label_amount">Amount</string>
+    <string name="label_title">Title</string>
+    <string name="hint_title">e.g. Lunch with team</string>
+    <string name="label_category">Category</string>
+    <string name="label_date">Date</string>
+    <string name="label_time">Time</string>
+    <string name="label_notes">Notes (optional)</string>
+    <string name="label_payment_method">Payment method</string>
+    <string name="label_type">Type</string>
+    <string name="error_amount_required">Enter an amount greater than 0</string>
+    <string name="error_title_required">Title can\'t be empty</string>
+    <string name="error_category_required">Please select a category</string>
+    <string name="transaction_saved">Transaction saved</string>
+    <string name="transaction_updated">Transaction updated</string>
+    <string name="cd_pick_date">Pick a date</string>
+    <string name="cd_pick_time">Pick a time</string>
+
+    <!-- Transactions list -->
+    <string name="transactions_title">Transactions</string>
+    <string name="search_transactions_hint">Search by title, category, or notes</string>
+    <string name="transactions_empty_title">No transactions found</string>
+    <string name="transactions_empty_subtitle">Try adjusting your search or filters</string>
+    <string name="transactions_empty_first_run">Nothing here yet. Add your first transaction to get started.</string>
+    <string name="filter_title">Filter Transactions</string>
+    <string name="filter_type">Type</string>
+    <string name="filter_all">All</string>
+    <string name="filter_categories">Categories</string>
+    <string name="filter_payment_methods">Payment methods</string>
+    <string name="filter_date_range">Date range</string>
+    <string name="filter_from">From</string>
+    <string name="filter_to">To</string>
+    <string name="sort_title">Sort by</string>
+    <string name="date_header_today">Today</string>
+    <string name="date_header_yesterday">Yesterday</string>
+
+    <!-- Transaction details -->
+    <string name="transaction_details_title">Transaction Details</string>
+    <string name="delete_transaction_title">Delete transaction?</string>
+    <string name="delete_transaction_message">This will permanently remove \"%1$s\". This can\'t be undone.</string>
+    <string name="transaction_deleted">Transaction deleted</string>
+
+    <!-- Analytics -->
+    <string name="analytics_title">Analytics</string>
+    <string name="analytics_total_income">Total income</string>
+    <string name="analytics_total_expense">Total expenses</string>
+    <string name="analytics_savings">Savings</string>
+    <string name="analytics_avg_daily_spend">Avg. daily spend</string>
+    <string name="analytics_top_category">Highest spending category</string>
+    <string name="analytics_by_category">Expenses by Category</string>
+    <string name="analytics_daily_spending">Daily Spending</string>
+    <string name="analytics_monthly_expenses">Monthly Expenses</string>
+    <string name="analytics_no_data">No expense data for this period yet</string>
+    <string name="cd_pick_custom_range">Pick a custom date range</string>
+
+    <!-- Budget -->
+    <string name="budget_title">Budget</string>
+    <string name="budget_monthly_overall">Monthly Budget</string>
+    <string name="budget_by_category">Category Budgets</string>
+    <string name="budget_set_overall_cta">Set monthly budget</string>
+    <string name="budget_edit_overall_cta">Edit monthly budget</string>
+    <string name="budget_add_category_cta">Add category budget</string>
+    <string name="budget_spent_of_total">%1$s of %2$s</string>
+    <string name="budget_remaining">%1$s remaining</string>
+    <string name="budget_over_by">%1$s over budget</string>
+    <string name="budget_warning_approaching">You\'re close to your %1$s budget</string>
+    <string name="budget_warning_exceeded">You\'ve gone over your %1$s budget</string>
+    <string name="budget_empty">No category budgets yet. Add one to start tracking.</string>
+    <string name="dialog_set_budget_title">Set Budget</string>
+    <string name="dialog_set_overall_budget_title">Set Monthly Budget</string>
+    <string name="label_budget_amount">Budget amount</string>
+    <string name="label_month">Month</string>
+    <string name="error_budget_amount_required">Enter a budget amount greater than 0</string>
+    <string name="budget_saved">Budget saved</string>
+    <string name="delete_budget_title">Remove this budget?</string>
+    <string name="delete_budget_message">You can set a new budget for this category anytime.</string>
+
+    <!-- Categories -->
+    <string name="categories_title">Categories</string>
+    <string name="categories_expense_tab">Expense</string>
+    <string name="categories_income_tab">Income</string>
+    <string name="add_category_title">Add Category</string>
+    <string name="edit_category_title">Edit Category</string>
+    <string name="label_category_name">Category name</string>
+    <string name="hint_category_name">e.g. Subscriptions</string>
+    <string name="label_choose_color">Choose a color</string>
+    <string name="label_choose_icon">Choose an icon</string>
+    <string name="error_category_name_required">Category name can\'t be empty</string>
+    <string name="category_saved">Category saved</string>
+    <string name="category_deleted">Category deleted</string>
+    <string name="default_category_badge">Default</string>
+    <string name="cd_delete_category">Delete category</string>
+    <string name="cd_edit_category">Edit category</string>
+    <string name="delete_category_title">Delete \"%1$s\"?</string>
+    <string name="delete_category_in_use_message">%1$d transaction(s) use this category. Reassign them to \"Other\" and delete, or cancel.</string>
+    <string name="delete_category_empty_message">This category isn\'t used by any transactions yet.</string>
+    <string name="action_reassign_and_delete">Reassign &amp; delete</string>
+    <string name="cannot_delete_default_category">Default categories can\'t be deleted, but you can rename them.</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_section_general">General</string>
+    <string name="settings_section_data">Data</string>
+    <string name="settings_section_about">About</string>
+    <string name="settings_currency">Currency</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_default_transaction_type">Default transaction type</string>
+    <string name="settings_manage_categories">Manage categories</string>
+    <string name="settings_manage_categories_desc">Add, edit, or remove expense and income categories</string>
+    <string name="settings_manage_payment_methods">Payment methods</string>
+    <string name="settings_monthly_budget">Monthly budget</string>
+    <string name="settings_export_data">Export data</string>
+    <string name="settings_export_data_desc">Save your transactions as a CSV or JSON file</string>
+    <string name="settings_import_data">Import data</string>
+    <string name="settings_import_data_desc">Restore transactions from a previously exported file</string>
+    <string name="settings_clear_all_data">Clear all data</string>
+    <string name="settings_clear_all_data_desc">Permanently delete every transaction, category, and budget</string>
+    <string name="settings_about_app">About SpendWise</string>
+    <string name="settings_version">Version %1$s</string>
+    <string name="settings_about_body">SpendWise is a fully offline expense tracker. Your financial data never leaves this device unless you choose to export it.</string>
+    <string name="export_format_title">Export as</string>
+    <string name="export_format_csv">CSV</string>
+    <string name="export_format_json">JSON</string>
+    <string name="export_success">Exported %1$d transactions</string>
+    <string name="export_failed">Export failed. Please try again.</string>
+    <string name="export_nothing_to_export">You don\'t have any transactions to export yet.</string>
+    <string name="import_success">Imported %1$d transactions</string>
+    <string name="import_failed">Import failed. Please check the file and try again.</string>
+    <string name="clear_data_confirm_title">Clear all data?</string>
+    <string name="clear_data_confirm_message">This permanently deletes every transaction, custom category, and budget. This can\'t be undone.</string>
+    <string name="clear_data_done">All data cleared</string>
+
+    <!-- Empty / error state fallback illustration -->
+    <string name="cd_empty_state_illustration">Empty state illustration</string>
+    <string name="cd_error_illustration">Error illustration</string>
+
+    <!-- Content descriptions for icon-only controls -->
+    <string name="cd_back">Navigate back</string>
+    <string name="cd_category_icon">Category icon</string>
+    <string name="cd_income_indicator">Income</string>
+    <string name="cd_expense_indicator">Expense</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

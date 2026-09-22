@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_background"
+    tools:context=".presentation.settings.SettingsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/spacing_xxl">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/md_background"
+            app:backgroundTint="@color/md_background"
+            app:title="@string/settings_title"
+            app:titleTextColor="@color/md_on_surface" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:paddingTop="@dimen/spacing_l"
+            android:paddingBottom="@dimen/spacing_xs"
+            android:text="@string/settings_section_general"
+            android:textColor="@color/md_primary"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.SpendWise.CardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/spacing_l">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/row_currency"
+                    layout="@layout/item_settings_row" />
+
+                <include
+                    android:id="@+id/row_theme"
+                    layout="@layout/item_settings_row" />
+
+                <include
+                    android:id="@+id/row_default_type"
+                    layout="@layout/item_settings_row" />
+
+                <include
+                    android:id="@+id/row_categories"
+                    layout="@layout/item_settings_row" />
+
+                <include
+                    android:id="@+id/row_payment_methods"
+                    layout="@layout/item_settings_row" />
+
+                <include
+                    android:id="@+id/row_budget"
+                    layout="@layout/item_settings_row" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:paddingTop="@dimen/spacing_l"
+            android:paddingBottom="@dimen/spacing_xs"
+            android:text="@string/settings_section_data"
+            android:textColor="@color/md_primary"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.SpendWise.CardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/spacing_l">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/row_export"
+                    layout="@layout/item_settings_row" />
+
+                <include
+                    android:id="@+id/row_import"
+                    layout="@layout/item_settings_row" />
+
+                <include
+                    android:id="@+id/row_clear_data"
+                    layout="@layout/item_settings_row" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/spacing_l"
+            android:paddingTop="@dimen/spacing_l"
+            android:paddingBottom="@dimen/spacing_xs"
+            android:text="@string/settings_section_about"
+            android:textColor="@color/md_primary"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.SpendWise.CardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/spacing_l">
+
+            <include
+                android:id="@+id/row_about"
+                layout="@layout/item_settings_row" />
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

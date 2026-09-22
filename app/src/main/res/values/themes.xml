@@ -1,9 +1,127 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.MyApplication" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-    </style>
+            <!-- Material 3 colors -->
+            <item name="colorPrimary">@color/md_primary</item>
+            <item name="colorOnPrimary">@color/md_on_primary</item>
+            <item name="colorPrimaryContainer">@color/md_primary_container</item>
+            <item name="colorOnPrimaryContainer">@color/md_on_primary_container</item>
 
-    <style name="Theme.MyApplication" parent="Base.Theme.MyApplication" />
+            <item name="colorSecondary">@color/md_secondary</item>
+            <item name="colorOnSecondary">@color/md_on_secondary</item>
+            <item name="colorSecondaryContainer">@color/md_secondary_container</item>
+            <item name="colorOnSecondaryContainer">@color/md_on_secondary_container</item>
+
+            <item name="colorTertiary">@color/md_tertiary</item>
+            <item name="colorOnTertiary">@color/md_on_tertiary</item>
+            <item name="colorTertiaryContainer">@color/md_tertiary_container</item>
+            <item name="colorOnTertiaryContainer">@color/md_on_tertiary_container</item>
+
+            <item name="colorError">@color/md_error</item>
+            <item name="colorOnError">@color/md_on_error</item>
+            <item name="colorErrorContainer">@color/md_error_container</item>
+            <item name="colorOnErrorContainer">@color/md_on_error_container</item>
+
+            <!-- Background & surfaces -->
+            <item name="android:colorBackground">@color/md_background</item>
+            <item name="colorOnBackground">@color/md_on_background</item>
+            <item name="colorSurface">@color/md_surface</item>
+            <item name="colorOnSurface">@color/md_on_surface</item>
+            <item name="colorSurfaceVariant">@color/md_surface_variant</item>
+            <item name="colorOnSurfaceVariant">@color/md_on_surface_variant</item>
+            <item name="colorOutline">@color/md_outline</item>
+            <item name="colorOutlineVariant">@color/md_outline_variant</item>
+
+            <!-- System bars -->
+            <item name="android:statusBarColor">@color/md_background</item>
+            <item name="android:navigationBarColor">@color/md_surface</item>
+            <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
+            <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
+
+            <!-- Custom components -->
+            <item name="bottomNavigationStyle">@style/Widget.SpendWise.BottomNavigation</item>
+            <item name="materialCardViewStyle">@style/Widget.SpendWise.CardView</item>
+            <item name="floatingActionButtonStyle">@style/Widget.SpendWise.Fab</item>
+
+        </style>
+
+        <style name="Theme.MyApplication" parent="Base.Theme.MyApplication" />
+        <style name="Theme.SpendWise" parent="Base.Theme.MyApplication" />
+
+        <!-- Splash -->
+        <style name="Theme.SpendWise.Splash" parent="Theme.SplashScreen">
+            <item name="windowSplashScreenBackground">@color/md_primary</item>
+            <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_logo</item>
+            <item name="postSplashScreenTheme">@style/Theme.SpendWise</item>
+        </style>
+
+        <!-- Card -->
+        <style name="ShapeAppearance.SpendWise.Card"
+            parent="ShapeAppearance.Material3.Corner.Large">
+            <item name="cornerSize">20dp</item>
+        </style>
+
+        <style name="ShapeAppearance.SpendWise.Small"
+            parent="ShapeAppearance.Material3.Corner.Medium">
+            <item name="cornerSize">14dp</item>
+        </style>
+
+        <style name="Widget.SpendWise.CardView"
+            parent="Widget.Material3.CardView.Elevated">
+            <item name="shapeAppearance">@style/ShapeAppearance.SpendWise.Card</item>
+            <item name="cardElevation">0dp</item>
+            <item name="strokeWidth">1dp</item>
+            <item name="strokeColor">@color/md_surface_variant</item>
+            <item name="cardBackgroundColor">@color/md_surface</item>
+        </style>
+
+        <!-- Bottom Navigation -->
+        <style name="Widget.SpendWise.BottomNavigation"
+            parent="Widget.Material3.BottomNavigationView">
+            <item name="backgroundTint">@color/md_surface</item>
+            <item name="elevation">8dp</item>
+        </style>
+
+        <!-- FAB -->
+        <style name="Widget.SpendWise.Fab"
+            parent="Widget.Material3.FloatingActionButton.Primary">
+            <item name="backgroundTint">@color/md_primary</item>
+            <item name="tint">@color/md_on_primary</item>
+        </style>
+
+        <!-- Text -->
+        <style name="TextAppearance.SpendWise.AmountLarge"
+            parent="TextAppearance.Material3.HeadlineMedium">
+            <item name="android:textStyle">bold</item>
+            <item name="fontFamily">sans-serif-medium</item>
+        </style>
+
+        <style name="TextAppearance.SpendWise.SectionHeader"
+            parent="TextAppearance.Material3.TitleMedium">
+            <item name="android:textStyle">bold</item>
+        </style>
+
+        <!-- Text Input -->
+        <style name="Widget.SpendWise.TextInputLayout"
+            parent="Widget.Material3.TextInputLayout.OutlinedBox">
+            <item name="boxCornerRadiusTopStart">14dp</item>
+            <item name="boxCornerRadiusTopEnd">14dp</item>
+            <item name="boxCornerRadiusBottomStart">14dp</item>
+            <item name="boxCornerRadiusBottomEnd">14dp</item>
+        </style>
+
+        <style name="Widget.SpendWise.TextInputLayout.ExposedDropdown"
+            parent="Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+            <item name="boxCornerRadiusTopStart">14dp</item>
+            <item name="boxCornerRadiusTopEnd">14dp</item>
+            <item name="boxCornerRadiusBottomStart">14dp</item>
+            <item name="boxCornerRadiusBottomEnd">14dp</item>
+        </style>
+
+        <!-- Chip -->
+        <style name="Widget.SpendWise.Chip"
+            parent="Widget.Material3.Chip.Filter">
+            <item name="chipCornerRadius">10dp</item>
+        </style>
+
 </resources>
