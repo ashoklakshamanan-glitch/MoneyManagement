@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/md_background"
-    tools:context=".presentation.transactions.TransactionsFragment">
+    tools:context="com.moneymanagement.spendwise.presentation.transactions.TransactionsFragment">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -57,7 +57,8 @@
             android:layout_weight="1"
             android:clipToPadding="false"
             android:paddingBottom="88dp"
-            tools:listitem="@layout/item_transaction" />
+            tools:listitem="@layout/item_transaction"
+            android:visibility="visible"/>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/empty_state_container"
@@ -68,7 +69,6 @@
         android:gravity="center"
         android:orientation="vertical"
         android:paddingHorizontal="@dimen/spacing_xxl"
-        android:visibility="gone"
         tools:visibility="gone">
 
         <ImageView

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/md_background"
-    tools:context=".presentation.addTransaction.AddEditTransactionFragment">
+    tools:context="com.moneymanagement.spendwise.presentation.addTransaction.AddEditTransactionFragment">
 
     <!-- Toolbar -->
     <com.google.android.material.appbar.MaterialToolbar
@@ -165,13 +165,12 @@
                     android:layout_height="wrap_content"
                     android:clickable="true"
                     android:cursorVisible="false"
-                    android:focusable="false"
+                    android:focusable="true"
                     android:inputType="none" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
 
-            <!-- Time -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/time_input_layout"
                 style="@style/Widget.SpendWise.TextInputLayout"
@@ -194,7 +193,7 @@
                     android:layout_height="wrap_content"
                     android:clickable="true"
                     android:cursorVisible="false"
-                    android:focusable="false"
+                    android:focusable="true"
                     android:inputType="none" />
 
             </com.google.android.material.textfield.TextInputLayout>

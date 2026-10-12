@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/header_label"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/spacing_l"
+    android:paddingTop="@dimen/spacing_l"
+    android:paddingBottom="@dimen/spacing_s"
+    android:textAppearance="@style/TextAppearance.SpendWise.SectionHeader"
+    android:textColor="@color/md_on_surface_variant"
+    tools:text="Today" />

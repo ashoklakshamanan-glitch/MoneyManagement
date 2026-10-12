@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/md_background"
-    tools:context=".presentation.analytics.AnalyticsFragment">
+    tools:context="com.moneymanagement.spendwise.presentation.analytics.AnalyticsFragment">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

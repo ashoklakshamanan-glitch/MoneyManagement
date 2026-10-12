@@ -9,13 +9,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.moneyManagement"
+    namespace = "com.moneymanagement.spendwise"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.example.moneyManagement"
+        applicationId = "com.moneymanagement.spendwise"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -71,4 +71,6 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     ksp(libs.androidx.room.compiler)
     coreLibraryDesugaring(libs.desugar.jdk.libs)
+    // DataStore (preferences)
+    implementation(libs.androidx.datastore.preferences)
 }
