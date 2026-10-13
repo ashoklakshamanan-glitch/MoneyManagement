@@ -5,11 +5,11 @@
 
 ## 📲 Download SpendWise
 
-    Try the SpendWise Android app by downloading the APK below.
+ Try the SpendWise Android app by downloading the APK below.
 
-    **[⬇️ Download SpendWise APK](https://github.com/ashoklakshamanan-glitch/MoneyManagement/releases/latest)**
+**[⬇️ Download SpendWise APK](https://github.com/ashoklakshamanan-glitch/MoneyManagement/releases/latest)**
 
-    Download the APK on your Android device and install it. You may need to allow installation from your browser or file manager.
+Download the APK on your Android device and install it. You may need to allow installation from your browser or file manager.
 
 
 ---
