@@ -1,10 +1,12 @@
 package com.moneymanagement.spendwise.presentation.addTransaction
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
@@ -12,7 +14,9 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.moneymanagement.spendwise.R
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.internal.ViewUtils.hideKeyboard
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textfield.TextInputLayout
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import com.moneymanagement.spendwise.databinding.FragmentAddEditTransactionBinding
@@ -22,6 +26,7 @@ import com.moneymanagement.spendwise.domain.model.TransactionType
 import com.moneymanagement.spendwise.utils.CategoryIconProvider
 import com.moneymanagement.spendwise.utils.DateTimeUtils
 import com.moneymanagement.spendwise.utils.collectOnStart
+import com.moneymanagement.spendwise.utils.hideKeyboard
 import dagger.hilt.android.AndroidEntryPoint
 import java.time.Instant
 import java.time.ZoneId
@@ -94,8 +99,18 @@ class AddEditTransactionFragment : Fragment() {
             if (type != viewModel.formState.value.type) viewModel.onTypeChanged(type)
         }
         binding.typeToggleGroup.check(binding.typeExpenseButton.id)
-        binding.categoryDropdown.setOnItemClickListener { _, _, position, _ ->
-            categoriesCache.getOrNull(position)?.let { viewModel.onCategorySelected(it.id) }
+
+        binding.categoryDropdown.apply {
+            // Prevent the keyboard from appearing for this dropdown
+            keyListener = null
+
+            setOnClickListener {
+                hideKeyboard()
+                showDropDown()
+            }
+            setOnItemClickListener { _, _, position, _ ->
+                categoriesCache.getOrNull(position)?.let { viewModel.onCategorySelected(it.id) }
+            }
         }
     }
 
@@ -136,9 +151,16 @@ class AddEditTransactionFragment : Fragment() {
                 methods.map(::paymentMethodLabel)
             )
         )
-        binding.paymentMethodDropdown.setOnItemClickListener { _, _, position, _ ->
-            methods.getOrNull(position)?.let(viewModel::onPaymentMethodChanged)
+        binding.paymentMethodDropdown.apply {
+           setOnClickListener {
+               hideKeyboard()
+               showDropDown()
+           }
+            setOnItemClickListener { _, _, position, _ ->
+                methods.getOrNull(position)?.let(viewModel::onPaymentMethodChanged)
+            }
         }
+
     }
 
     private fun renderCategories(categories: List<Category>) {
@@ -182,6 +204,7 @@ class AddEditTransactionFragment : Fragment() {
         binding.saveButton.setText(if (state.isSaving) R.string.action_saving else R.string.action_save)
     }
 
+
     private fun handleEvent(event: AddEditTransactionEvent) {
         when (event) {
             AddEditTransactionEvent.Saved -> {
@@ -189,7 +212,14 @@ class AddEditTransactionFragment : Fragment() {
                     .show()
                 findNavController().navigateUp()
             }
-            is AddEditTransactionEvent.SaveFailed-> { Snackbar.make(binding.root, /*R.string.error_database*/event.message, Snackbar.LENGTH_LONG).show()}
+
+            is AddEditTransactionEvent.SaveFailed -> {
+                Snackbar.make(
+                    binding.root, /*R.string.error_database*/
+                    event.message,
+                    Snackbar.LENGTH_LONG
+                ).show()
+            }
 
         }
     }

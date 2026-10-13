@@ -22,9 +22,6 @@ import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
-import com.moneymanagement.spendwise.presentation.dashboard.DashBoardViewModel
-import com.moneymanagement.spendwise.presentation.dashboard.DashboardData
-import com.moneymanagement.spendwise.presentation.dashboard.DashboardFragmentDirections
 import com.moneymanagement.spendwise.R
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.collections.mapIndexed
@@ -64,6 +61,15 @@ class DashboardFragment : Fragment() {
                 DashboardFragmentDirections.actionDashboardToAddEditTransaction()
             )
         }
+        binding.setBudgetButton.setOnClickListener {
+            findNavController().navigate(DashboardFragmentDirections.actionDashboardFragmentToBudgetFragment())
+        }
+        binding.viewAllButton.setOnClickListener {
+            findNavController().navigate(DashboardFragmentDirections.actionDashboardFragmentToTransactionsFragment())
+        }
+        binding.swipeRefresh.setOnRefreshListener {
+            binding.swipeRefresh.isRefreshing = false
+        }
     }
 
     private fun render(state: UiState<DashboardData>) {
@@ -87,8 +93,7 @@ class DashboardFragment : Fragment() {
         val budget = data.monthlyBudget
         if (budget != null && budget.amount > 0) {
             binding.budgetProgressRing.progress = data.budgetPercentUsed.coerceIn(0, 100)
-            binding.budgetPercentText.text =
-                getString(R.string.dashboard_budget_used_percent, data.budgetPercentUsed)
+            binding.budgetPercentText.text = getString(R.string.dashboard_budget_used_percent, data.budgetPercentUsed)
             binding.budgetSummaryText.text = getString(
                 R.string.budget_spent_of_total,
                 CurrencyFormatter.format(data.currentMonthExpense, data.currencyCode),

@@ -11,7 +11,8 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -242,7 +243,7 @@
                             android:layout_marginTop="2dp"
                             android:text="@string/dashboard_set_budget_cta"
                             android:visibility="gone"
-                            tools:visibility="visible"
+                            tools:visibility="gone"
                             app:layout_constraintStart_toStartOf="@id/budget_summary_text"
                             app:layout_constraintTop_toBottomOf="@id/budget_summary_text" />
 

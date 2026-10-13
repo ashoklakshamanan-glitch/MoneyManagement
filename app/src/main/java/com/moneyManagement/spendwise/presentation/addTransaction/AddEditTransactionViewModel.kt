@@ -100,11 +100,11 @@ class AddEditTransactionViewModel @Inject constructor(
                 }
             }
         } else {
-           /* viewModelScope.launch {
+            viewModelScope.launch {
                 val defaultType = settingsRepository.userPreferences.first().defaultTransactionType
                 selectedType.value = defaultType
                 _formState.update { it.copy(type = defaultType) }
-            }*/
+            }
         }
     }
     fun onAmountChanged(value: String) =

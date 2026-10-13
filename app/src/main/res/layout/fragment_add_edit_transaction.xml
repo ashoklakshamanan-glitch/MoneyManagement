@@ -14,39 +14,56 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/md_background"
         app:backgroundTint="@color/md_background"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationContentDescription="@string/cd_back"
         app:navigationIcon="@drawable/ic_arrow_back"
         app:navigationIconTint="@color/md_on_surface"
-        app:navigationContentDescription="@string/cd_back"
         app:title="@string/add_transaction_title"
         app:titleTextColor="@color/md_on_surface" />
 
-    <!-- Scrollable content -->
+    <!-- Fixed Save button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/save_button"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="@dimen/spacing_l"
+        android:layout_marginTop="@dimen/spacing_m"
+        android:layout_marginBottom="@dimen/spacing_l"
+        android:text="@string/action_save"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:cornerRadius="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Scrollable form -->
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/transaction_scroll_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:clipToPadding="false"
         android:fillViewport="true"
-        android:paddingBottom="@dimen/spacing_xl"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingBottom="@dimen/spacing_l"
+        app:layout_constraintBottom_toTopOf="@id/save_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar">
 
-        <!-- Content -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="@dimen/spacing_l"
-            android:paddingTop="@dimen/spacing_m">
+            android:paddingTop="@dimen/spacing_m"
+            android:paddingBottom="@dimen/spacing_m">
 
             <!-- Expense / Income -->
             <com.google.android.material.button.MaterialButtonToggleGroup
                 android:id="@+id/type_toggle_group"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="52dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -58,22 +75,25 @@
                     android:id="@+id/type_expense_button"
                     style="@style/Widget.Material3.Button.OutlinedButton"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="@string/type_expense" />
+                    android:text="@string/type_expense"
+                    android:textAllCaps="false"
+                    android:textSize="15sp" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/type_income_button"
                     style="@style/Widget.Material3.Button.OutlinedButton"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="@string/type_income" />
+                    android:text="@string/type_income"
+                    android:textAllCaps="false"
+                    android:textSize="15sp" />
 
             </com.google.android.material.button.MaterialButtonToggleGroup>
 
-
-            <!-- Amount -->
+            <!-- Prominent amount -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/amount_input_layout"
                 style="@style/Widget.SpendWise.TextInputLayout"
@@ -81,6 +101,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_l"
                 android:hint="@string/label_amount"
+                app:boxBackgroundMode="none"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/type_toggle_group"
@@ -91,13 +112,17 @@
                     android:id="@+id/amount_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
                     android:inputType="numberDecimal"
-                    android:textSize="20sp" />
+                    android:paddingTop="@dimen/spacing_m"
+                    android:paddingBottom="@dimen/spacing_m"
+                    android:singleLine="true"
+                    android:textSize="36sp"
+                    android:textStyle="bold" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-
-            <!-- Title -->
+            <!-- Transaction title -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/title_input_layout"
                 style="@style/Widget.SpendWise.TextInputLayout"
@@ -107,18 +132,17 @@
                 android:hint="@string/label_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/amount_input_layout"
-                app:placeholderText="@string/hint_title">
+                app:layout_constraintTop_toBottomOf="@id/amount_input_layout">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/title_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
                     android:inputType="textCapSentences"
-                    android:maxLines="1" />
+                    android:singleLine="true" />
 
             </com.google.android.material.textfield.TextInputLayout>
-
 
             <!-- Category -->
             <com.google.android.material.textfield.TextInputLayout
@@ -137,10 +161,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="none"
+                    android:paddingVertical="16dp"
                     tools:ignore="LabelFor" />
 
             </com.google.android.material.textfield.TextInputLayout>
-
 
             <!-- Date -->
             <com.google.android.material.textfield.TextInputLayout
@@ -166,11 +190,13 @@
                     android:clickable="true"
                     android:cursorVisible="false"
                     android:focusable="true"
-                    android:inputType="none" />
+                    android:inputType="none"
+                    android:singleLine="true"
+                    android:textSize="14sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-
+            <!-- Time -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/time_input_layout"
                 style="@style/Widget.SpendWise.TextInputLayout"
@@ -194,12 +220,13 @@
                     android:clickable="true"
                     android:cursorVisible="false"
                     android:focusable="true"
-                    android:inputType="none" />
+                    android:inputType="none"
+                    android:singleLine="true"
+                    android:textSize="14sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-
-            <!-- Payment Method -->
+            <!-- Payment method -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/payment_method_input_layout"
                 style="@style/Widget.SpendWise.TextInputLayout.ExposedDropdown"
@@ -216,12 +243,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="none"
+                    android:paddingVertical="12dp"
                     tools:ignore="LabelFor" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-
-            <!-- Notes -->
+            <!-- Optional notes -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/notes_input_layout"
                 style="@style/Widget.SpendWise.TextInputLayout"
@@ -239,24 +266,10 @@
                     android:layout_height="wrap_content"
                     android:gravity="top|start"
                     android:inputType="textMultiLine|textCapSentences"
-                    android:minLines="3" />
+                    android:maxLines="4"
+                    android:minLines="2" />
 
             </com.google.android.material.textfield.TextInputLayout>
-
-
-            <!-- Save -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/save_button"
-                android:layout_width="0dp"
-                android:layout_height="56dp"
-                android:text="@string/action_save"
-                android:textSize="16sp"
-                app:cornerRadius="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/notes_input_layout"
-                app:layout_constraintVertical_bias="1.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
