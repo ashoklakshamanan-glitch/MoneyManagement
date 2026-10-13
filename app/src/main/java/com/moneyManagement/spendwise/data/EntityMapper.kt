@@ -1,11 +1,15 @@
 package com.moneymanagement.spendwise.data
 
 import com.moneymanagement.spendwise.data.model.local.entity.CategoryEntity
+import com.moneymanagement.spendwise.data.model.local.entity.CategoryTotalRow
 import com.moneymanagement.spendwise.data.model.local.entity.DailyTotalRow
+import com.moneymanagement.spendwise.data.model.local.entity.MonthlyTotalRow
 import com.moneymanagement.spendwise.data.model.local.entity.TransactionEntity
 import com.moneymanagement.spendwise.data.model.local.entity.TransactionWithCategory
 import com.moneymanagement.spendwise.domain.model.Category
+import com.moneymanagement.spendwise.domain.model.CategoryTotal
 import com.moneymanagement.spendwise.domain.model.DailyTotal
+import com.moneymanagement.spendwise.domain.model.MonthlyTotal
 import com.moneymanagement.spendwise.domain.model.PaymentMethod
 import com.moneymanagement.spendwise.domain.model.Transaction
 import com.moneymanagement.spendwise.domain.model.TransactionType
@@ -54,3 +58,9 @@ fun Category.toEntity(): CategoryEntity = CategoryEntity(
     isDefault = isDefault
 )
 fun DailyTotalRow.toDomain(): DailyTotal = DailyTotal(dateMillis = date, total = total)
+fun CategoryTotalRow.toDomain(): CategoryTotal = CategoryTotal(
+    category = category.toDomain(),
+    total = total
+)
+
+fun MonthlyTotalRow.toDomain(): MonthlyTotal = MonthlyTotal(yearMonth = yearMonth, total = total)

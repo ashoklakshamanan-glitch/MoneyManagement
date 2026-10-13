@@ -4,10 +4,13 @@ import com.moneymanagement.spendwise.data.model.local.dao.TransactionDao
 import com.moneymanagement.spendwise.data.toDomain
 import com.moneymanagement.spendwise.data.toEntity
 import com.moneymanagement.spendwise.di.IoDispatcher
+import com.moneymanagement.spendwise.domain.model.CategoryTotal
 import com.moneymanagement.spendwise.domain.model.DailyTotal
+import com.moneymanagement.spendwise.domain.model.MonthlyTotal
 import com.moneymanagement.spendwise.domain.model.Transaction
 import com.moneymanagement.spendwise.domain.model.TransactionType
 import com.moneymanagement.spendwise.domain.repository.TransactionRepository
+import com.moneymanagement.spendwise.utils.DateTimeUtils
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -27,9 +30,6 @@ class TransactionRepositoryImpl @Inject constructor(
         transactionDao.getRecentTransactions(limit).map { list -> list.map { it.toDomain() } }
 
 
-    override fun getTransactionById(id: Long): Flow<Transaction?> {
-        return transactionDao.getTransactionById(id).map { it?.toDomain() }
-    }
 
     override fun getTotalByType(type: TransactionType) = transactionDao.getTotalByType(type.name)
 
@@ -70,33 +70,20 @@ class TransactionRepositoryImpl @Inject constructor(
         }
 
 
-    /*
-
-     override fun getRecentTransactions(limit: Int): Flow<List<Transaction>> =
-         transactionDao.getRecentTransactions(limit).map { list -> list.map { it.toDomain() } }
-
-     override fun getTransactionsBetween(startMillis: Long, endMillis: Long): Flow<List<Transaction>> =
+      fun getTransactionsBetween(startMillis: Long, endMillis: Long): Flow<List<Transaction>> =
          transactionDao.getTransactionsBetween(startMillis, endMillis).map { list -> list.map { it.toDomain() } }
 
      override fun getTransactionById(id: Long): Flow<Transaction?> =
          transactionDao.getTransactionById(id).map { it?.toDomain() }
 
-     override fun getTotalByType(type: TransactionType): Flow<Double> =
-         transactionDao.getTotalByType(type.name)
 
-     override fun getTotalByTypeBetween(type: TransactionType, startMillis: Long, endMillis: Long): Flow<Double> =
-         transactionDao.getTotalByTypeBetween(type.name, startMillis, endMillis)
 
      override fun getCategoryTotals(type: TransactionType, startMillis: Long, endMillis: Long): Flow<List<CategoryTotal>> =
          transactionDao.getCategoryTotals(type.name, startMillis, endMillis).map { list -> list.map { it.toDomain() } }
 
-     override fun getDailyTotals(type: TransactionType, startMillis: Long, endMillis: Long): Flow<List<DailyTotal>> =
-         transactionDao.getDailyTotals(type.name, startMillis, endMillis).map { list -> list.map { it.toDomain() } }
-
      override fun getMonthlyTotals(type: TransactionType, monthsBack: Int): Flow<List<MonthlyTotal>> {
-         val sinceMillis = com.spendwise.app.utils.DateTimeUtils.monthsAgoStartMillis(monthsBack)
+         val sinceMillis = DateTimeUtils.monthsAgoStartMillis(monthsBack)
          return transactionDao.getMonthlyTotals(type.name, sinceMillis).map { list -> list.map { it.toDomain() } }
      }
-     */
 
 }

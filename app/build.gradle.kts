@@ -6,6 +6,8 @@ plugins {
     alias(libs.plugins.ksp)
     id("com.google.dagger.hilt.android")
     id("com.google.gms.google-services")
+    // Add the dependency for the Crashlytics Gradle plugin
+    id("com.google.firebase.crashlytics")
 }
 
 android {
@@ -17,7 +19,6 @@ android {
     defaultConfig {
         applicationId = "com.moneymanagement.spendwise"
         minSdk = 24
-        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
@@ -39,6 +40,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
     buildFeatures {
+        buildConfig = true
         viewBinding = true
     }
 }
@@ -49,6 +51,7 @@ dependencies {
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.room.common)
+    implementation(libs.androidx.room3.common)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
@@ -73,4 +76,7 @@ dependencies {
     coreLibraryDesugaring(libs.desugar.jdk.libs)
     // DataStore (preferences)
     implementation(libs.androidx.datastore.preferences)
+    implementation(libs.firebase.crashlytics)
+    implementation(libs.google.firebase.analytics)
+
 }

@@ -1,6 +1,8 @@
 package com.moneymanagement.spendwise.domain.repository
 
+import com.moneymanagement.spendwise.domain.model.CategoryTotal
 import com.moneymanagement.spendwise.domain.model.DailyTotal
+import com.moneymanagement.spendwise.domain.model.MonthlyTotal
 import com.moneymanagement.spendwise.domain.model.Transaction
 import com.moneymanagement.spendwise.domain.model.TransactionType
 import kotlinx.coroutines.flow.Flow
@@ -17,15 +19,16 @@ interface TransactionRepository {
   fun getTotalByType(type: TransactionType): Flow<Double>
   fun getTotalByTypeBetween(type: TransactionType, startMillis: Long, endMillis: Long): Flow<Double>
   fun getDailyTotals(type: TransactionType, startMillis: Long, endMillis: Long): Flow<List<DailyTotal>>
-  /*
 
 
+  fun getCategoryTotals(
+    type: TransactionType,
+    startMillis: Long,
+    endMillis: Long
+  ): Flow<List<CategoryTotal>>
 
-   fun getCategoryTotals(type: TransactionType, startMillis: Long, endMillis: Long): Flow<List<CategoryTotal>>
 
-
-
-   fun getMonthlyTotals(type: TransactionType, monthsBack: Int): Flow<List<MonthlyTotal>>*/
+  fun getMonthlyTotals(type: TransactionType, monthsBack: Int): Flow<List<MonthlyTotal>>
   suspend fun addTransaction(transaction: Transaction): Result<Long>
 
     suspend fun updateTransaction(transaction: Transaction): Result<Unit>

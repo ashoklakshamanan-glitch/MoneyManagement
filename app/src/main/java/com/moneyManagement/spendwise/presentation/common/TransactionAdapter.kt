@@ -10,6 +10,7 @@ import com.moneymanagement.spendwise.R
 import com.moneymanagement.spendwise.databinding.ItemTransactionBinding
 import com.moneymanagement.spendwise.domain.model.Transaction
 import com.moneymanagement.spendwise.domain.model.TransactionType
+import com.moneymanagement.spendwise.presentation.transactions.TransactionsListAdapter
 import com.moneymanagement.spendwise.utils.CategoryIconProvider
 import com.moneymanagement.spendwise.utils.CurrencyFormatter
 import com.moneymanagement.spendwise.utils.DateTimeUtils
@@ -40,7 +41,10 @@ class TransactionAdapter(
         return TransactionViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: TransactionViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: TransactionViewHolder,
+        position: Int
+    ) {
         holder.bind(getItem(position))
     }
 
@@ -51,16 +55,23 @@ class TransactionAdapter(
             binding.transactionTitle.text = transaction.title
             binding.transactionSubtitle.text =
                 "${transaction.category.name} \u00B7 ${DateTimeUtils.formatTime12h(transaction.time)}"
+
             val isIncome = transaction.type == TransactionType.INCOME
             binding.transactionAmount.text =
                 CurrencyFormatter.formatSigned(transaction.amount, currencyCode(), isIncome)
             binding.transactionAmount.setTextColor(
                 context.getColor(if (isIncome) R.color.color_income else R.color.color_expense)
             )
+
             binding.categoryIcon.setImageResource(CategoryIconProvider.getIcon(transaction.category.icon))
             runCatching {
-                binding.categoryIconContainer.setBackgroundColor(Color.parseColor(transaction.category.color))
+                binding.categoryIconContainer.setCardBackgroundColor(
+                    Color.parseColor(
+                        transaction.category.color
+                    )
+                )
             }
+
             binding.root.setOnClickListener { onClick(transaction) }
         }
     }

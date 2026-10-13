@@ -39,13 +39,12 @@ interface TransactionDao {
     @Query("SELECT * FROM transactions ORDER BY date DESC, time DESC, id DESC LIMIT :limit")
     fun getRecentTransactions(limit: Int): Flow<List<TransactionWithCategory>>
 
-    /*
+
 
 
     @Transaction
     @Query("SELECT * FROM transactions WHERE date BETWEEN :startMillis AND :endMillis ORDER BY date DESC, time DESC, id DESC")
     fun getTransactionsBetween(startMillis: Long, endMillis: Long): Flow<List<TransactionWithCategory>>
-*/
     @Transaction
     @Query("SELECT * FROM transactions WHERE id = :id LIMIT 1")
     fun getTransactionById(id: Long): Flow<TransactionWithCategory?>

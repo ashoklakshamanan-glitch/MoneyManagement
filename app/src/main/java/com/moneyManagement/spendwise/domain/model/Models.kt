@@ -67,3 +67,16 @@ data class DailyTotal(
     val dateMillis: Long,
     val total: Double
 )
+
+
+/** Aggregate row: total spent in a given "yyyy-MM" month bucket. */
+data class MonthlyTotal(
+    val yearMonth: String,
+    val total: Double
+)
+
+/** Aggregate row: total spent per category over some date range. */
+data class CategoryTotal(
+    val category: Category,
+    val total: Double
+)
