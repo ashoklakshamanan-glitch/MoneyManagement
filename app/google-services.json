@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:568631850536:android:4d3649ca14f01fb0c6e71d",
+        "mobilesdk_app_id": "1:568631850536:android:2209d53502f8f34fc6e71d",
         "android_client_info": {
-          "package_name": "com.example.moneyManagement"
+          "package_name": "com.moneymanagement.spendwise"
         }
       },
       "oauth_client": [],

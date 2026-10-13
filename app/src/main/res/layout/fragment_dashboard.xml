@@ -11,7 +11,8 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -242,7 +243,7 @@
                             android:layout_marginTop="2dp"
                             android:text="@string/dashboard_set_budget_cta"
                             android:visibility="gone"
-                            tools:visibility="visible"
+                            tools:visibility="gone"
                             app:layout_constraintStart_toStartOf="@id/budget_summary_text"
                             app:layout_constraintTop_toBottomOf="@id/budget_summary_text" />
 
@@ -297,10 +298,11 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/dashboard_recent_transactions"
+                    android:layout_marginTop="@dimen/spacing_m"
                     android:textAppearance="@style/TextAppearance.SpendWise.SectionHeader"
                     android:textColor="@color/md_on_surface"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/view_all_button"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/chart_card" />
 
                 <com.google.android.material.button.MaterialButton
@@ -309,6 +311,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/action_view_all"
+                    app:layout_constraintBottom_toBottomOf="@+id/recent_transactions_title"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/recent_transactions_title" />
 
@@ -318,7 +321,7 @@
                     style="@style/Widget.SpendWise.CardView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_s"
+                    android:layout_marginTop="@dimen/spacing_m"
                     app:layout_constraintTop_toBottomOf="@id/recent_transactions_title"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent">
@@ -367,6 +370,7 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         tools:visibility="gone"
+        android:layout_gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

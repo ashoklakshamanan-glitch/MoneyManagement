@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="payment_methods">
+        <item>Cash</item>
+        <item>UPI</item>
+        <item>Credit Card</item>
+        <item>Debit Card</item>
+        <item>Bank Transfer</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="analytics_ranges">
+        <item>This Week</item>
+        <item>This Month</item>
+        <item>Last Month</item>
+        <item>This Year</item>
+        <item>Custom Range</item>
+    </string-array>
+
+    <string-array name="sort_options">
+        <item>Newest first</item>
+        <item>Oldest first</item>
+        <item>Amount: High to low</item>
+        <item>Amount: Low to high</item>
+    </string-array>
+
+    <string-array name="theme_options">
+        <item>Light</item>
+        <item>Dark</item>
+        <item>System default</item>
+    </string-array>
+
+    <string-array name="currency_options">
+        <item>INR - Indian Rupee (\u20B9)</item>
+        <item>USD - US Dollar ($)</item>
+        <item>EUR - Euro (\u20AC)</item>
+        <item>GBP - British Pound (\u00A3)</item>
+        <item>JPY - Japanese Yen (\u00A5)</item>
+    </string-array>
+
+    <string-array name="currency_codes">
+        <item>INR</item>
+        <item>USD</item>
+        <item>EUR</item>
+        <item>GBP</item>
+        <item>JPY</item>
+    </string-array>
+
+    <array name="category_swatches">
+        <item>@color/category_swatch_1</item>
+        <item>@color/category_swatch_2</item>
+        <item>@color/category_swatch_3</item>
+        <item>@color/category_swatch_4</item>
+        <item>@color/category_swatch_5</item>
+        <item>@color/category_swatch_6</item>
+        <item>@color/category_swatch_7</item>
+        <item>@color/category_swatch_8</item>
+        <item>@color/category_swatch_9</item>
+        <item>@color/category_swatch_10</item>
+        <item>@color/category_swatch_11</item>
+        <item>@color/category_swatch_12</item>
+    </array>
+</resources>

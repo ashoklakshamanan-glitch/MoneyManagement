@@ -205,4 +205,8 @@
     <string name="cd_expense_indicator">Expense</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="oldest_first">Oldest first</string>
+    <string name="newest_first">Newest first</string>
+    <string name="amount_high_to_low">Amount: High to low</string>
+    <string name="amount_low_to_high">Amount: Low to high</string>
 </resources>
