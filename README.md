@@ -1,6 +1,16 @@
 # SpendWise 💰
 
 **SpendWise** is a modern, fully offline Android application designed to help users track day-to-day income and expenses, set category budgets, and analyze spending patterns with insightful charts.
+---
+
+## 📲 Download SpendWise
+
+    Try the SpendWise Android app by downloading the APK below.
+
+    **[⬇️ Download SpendWise APK](https://github.com/ashoklakshamanan-glitch/MoneyManagement/releases/latest)**
+
+    Download the APK on your Android device and install it. You may need to allow installation from your browser or file manager.
+
 
 ---
 
