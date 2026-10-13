@@ -17,6 +17,20 @@
 
 ---
 
+## 📱 App Screenshots
+
+<p align="center">
+  <img src="screenshots/dashboard.png" width="250" alt="SpendWise Dashboard" />
+  <img src="screenshots/transactions.png" width="250" alt="SpendWise Transactions" />
+  <img src="screenshots/budget.png" width="250" alt="SpendWise Budget Management" />
+</p>
+
+<p align="center">
+  <img src="screenshots/analytics.png" width="250" alt="SpendWise Analytics" />
+  <img src="screenshots/categories.png" width="250" alt="SpendWise Categories" />
+  <img src="screenshots/settings.png" width="250" alt="SpendWise Settings" />
+</p>
+
 ## 🛠️ Tech Stack & Architecture
 
 - **Language**: [Kotlin](https://kotlinlang.org/)
