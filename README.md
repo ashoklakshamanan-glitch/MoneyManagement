@@ -29,8 +29,7 @@
 
 <p align="center">
   <img src="screenshots/analytics.jpeg" width="250" alt="SpendWise Analytics" />
-  <img src="screenshots/categories.jpeg" width="250" alt="SpendWise Categories" />
-  <img src="screenshots/settingsjpeg" width="250" alt="SpendWise Settings" />
+  <img src="screenshots/settings.jpeg" width="250" alt="SpendWise Settings" />
 </p>
 
 ## 🛠️ Tech Stack & Architecture
